@@ -5,200 +5,218 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abdelkader</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="point_aletter_ai_7142.png">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --void:#04030a;
-  --deep:#080613;
-  --surface:#0e0b1e;
-  --surface2:#130f26;
-  --surface3:#1a1530;
-  --border:#ffffff09;
-  --border2:#ffffff14;
-  --text:#e8e4f0;
-  --muted:#6b6480;
-  --dim:#342e4d;
-
-  --neon:#b44dff;
-  --neon2:#6affce;
-  --neon3:#ff4d8b;
-  --neon4:#ffb347;
-  --neon-dim:#3d1a5c;
-  --neon2-dim:#0d3326;
-  --neon3-dim:#3d0e22;
+  --void:#020208;
+  --deep:#05040f;
+  --surf:#0b0918;
+  --surf2:#100e20;
+  --surf3:#161228;
+  --b1:#ffffff07;
+  --b2:#ffffff11;
+  --b3:#ffffff1a;
+  --text:#ddd8f0;
+  --muted:#5a5470;
+  --dim:#2e2a45;
+  --c1:#00ffe0;
+  --c2:#ff3cac;
+  --c3:#ffe135;
+  --c4:#3c8fff;
+  --c1d:#00201a;
+  --c2d:#200010;
+  --c3d:#1e1a00;
+  --c4d:#001428;
 }
 html{scroll-behavior:smooth}
 body{background:var(--void);color:var(--text);font-family:'Syne',sans-serif;font-weight:400;line-height:1.6;cursor:none;overflow-x:hidden}
+.cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--c1);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .18s,height .18s;mix-blend-mode:screen}
+.cursor.big{width:44px;height:44px;opacity:.12}
 
-.cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--neon);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;mix-blend-mode:screen}
-.cursor.big{width:48px;height:48px;opacity:.15;background:var(--neon)}
-
-nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3.5rem;z-index:100;background:rgba(4,3,10,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border2)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.1em;color:var(--text);text-decoration:none}
-.nav-logo span{color:var(--neon)}
+nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3.5rem;z-index:100;background:rgba(2,2,8,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--b2)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.1em;color:var(--text);text-decoration:none}
+.logo span{color:var(--c1)}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--neon2)}
+.nav-links a{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--c1)}
 
 .hero{min-height:100vh;padding:10rem 3.5rem 5rem;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:4rem;position:relative;overflow:hidden}
-.hero-bg-glyph{position:absolute;right:-5%;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:35vw;color:transparent;-webkit-text-stroke:1px rgba(180,77,255,.05);pointer-events:none;line-height:1;z-index:0;user-select:none}
-.hero-content{position:relative;z-index:1}
-.hero-eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem}
-.eyebrow-line{width:2rem;height:1px;background:var(--neon2)}
-.eyebrow-text{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--neon2)}
-.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,11vw,10rem);line-height:.88;letter-spacing:.02em;margin-bottom:1.8rem}
-.hero-name .line2{color:var(--neon);-webkit-text-stroke:0}
-.hero-name .outline{color:transparent;-webkit-text-stroke:1px rgba(180,77,255,.4)}
-.hero-desc{font-size:1rem;color:var(--muted);max-width:40ch;line-height:1.8;margin-bottom:2.5rem;font-weight:300}
-.hero-desc strong{color:var(--text);font-weight:700}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:.7rem;background:var(--neon);color:#0a0010;padding:.85rem 2rem;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background .2s,transform .15s}
-.btn-primary:hover{background:var(--neon2);transform:translateY(-2px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--border2);color:var(--muted);padding:.85rem 2rem;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:border-color .2s,color .2s}
-.btn-ghost:hover{border-color:var(--neon3);color:var(--neon3)}
-.hero-right{position:relative;z-index:1}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem}
-.stat-box{background:var(--surface);border:1px solid var(--border2);padding:1.5rem;position:relative;overflow:hidden}
-.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--neon);opacity:.4;transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.stat-box:hover::before{transform:scaleX(1)}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;line-height:1;color:var(--neon)}
-.stat-num.c2{color:var(--neon2)}
-.stat-num.c3{color:var(--neon3)}
-.stat-num.c4{color:var(--neon4)}
-.stat-lbl{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
-.avail-strip{background:var(--surface2);border:1px solid var(--border2);padding:1rem 1.4rem;display:flex;align-items:center;gap:1rem}
-.pulse-dot{width:7px;height:7px;background:var(--neon2);border-radius:50%;flex-shrink:0;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.avail-text{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--muted)}
-.avail-text span{color:var(--neon2)}
+.ghost{position:absolute;right:-4%;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:34vw;color:transparent;-webkit-text-stroke:1px rgba(0,255,224,.04);pointer-events:none;line-height:1;user-select:none;z-index:0}
+.hc{position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem}
+.eline{width:2rem;height:1px;background:var(--c1)}
+.etag{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c1)}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,11vw,10rem);line-height:.88;letter-spacing:.02em;margin-bottom:1.8rem}
+h1 .l2{color:var(--c2)}
+h1 .lo{color:transparent;-webkit-text-stroke:1px rgba(255,60,172,.3)}
+.hdesc{font-size:1rem;color:var(--muted);max-width:40ch;line-height:1.85;margin-bottom:2.5rem;font-weight:300}
+.hdesc strong{color:var(--text);font-weight:700}
+.hbtns{display:flex;gap:1rem}
+.bp{display:inline-flex;align-items:center;gap:.7rem;background:var(--c1);color:#001a14;padding:.85rem 2rem;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background .2s,transform .15s}
+.bp:hover{background:var(--c2);color:#1a0010;transform:translateY(-2px)}
+.bg{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--b3);color:var(--muted);padding:.85rem 2rem;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.bg:hover{border-color:var(--c2);color:var(--c2)}
+.hr{position:relative;z-index:1}
+.hstats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem}
+.sbox{background:var(--surf);border:1px solid var(--b2);padding:1.5rem;position:relative;overflow:hidden;transition:background .3s}
+.sbox:hover{background:var(--surf2)}
+.sbox::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.sbox:nth-child(1)::after{background:var(--c1)}
+.sbox:nth-child(2)::after{background:var(--c2)}
+.sbox:nth-child(3)::after{background:var(--c3)}
+.sbox:nth-child(4)::after{background:var(--c4)}
+.sbox:hover::after{transform:scaleX(1)}
+.snum{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1}
+.sbox:nth-child(1) .snum{color:var(--c1)}
+.sbox:nth-child(2) .snum{color:var(--c2)}
+.sbox:nth-child(3) .snum{color:var(--c3)}
+.sbox:nth-child(4) .snum{color:var(--c4)}
+.slbl{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+.astrip{background:var(--surf2);border:1px solid var(--b2);padding:1rem 1.4rem;display:flex;align-items:center;gap:1rem}
+.pdot{width:7px;height:7px;background:var(--c1);border-radius:50%;animation:pl 2s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.2}}
+.atxt{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--muted)}
+.atxt span{color:var(--c1)}
 
-.ticker-outer{background:var(--surface);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);overflow:hidden;padding:.75rem 0}
-.ticker-track{display:flex;gap:2.5rem;animation:ticker 20s linear infinite;width:max-content}
-.ticker-item{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.15em;color:var(--dim);white-space:nowrap;display:flex;align-items:center;gap:1.5rem}
-.ticker-item .dot{font-size:.5rem;color:var(--neon3)}
-.ticker-item:nth-child(3n) .dot{color:var(--neon)}
-.ticker-item:nth-child(3n+2) .dot{color:var(--neon2)}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tkr{background:var(--surf);border-top:1px solid var(--b2);border-bottom:1px solid var(--b2);overflow:hidden;padding:.7rem 0}
+.ttrack{display:flex;gap:2.5rem;animation:tk 22s linear infinite;width:max-content}
+.titem{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:var(--dim);white-space:nowrap;display:flex;align-items:center;gap:1.5rem}
+.titem .td{font-size:.5rem}
+.titem:nth-child(4n+1) .td{color:var(--c1)}
+.titem:nth-child(4n+2) .td{color:var(--c2)}
+.titem:nth-child(4n+3) .td{color:var(--c3)}
+.titem:nth-child(4n) .td{color:var(--c4)}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-section.block{padding:7rem 3.5rem}
+.blk{padding:7rem 3.5rem}
+.sl{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.sln{width:1.5rem;height:1px}
+.stg{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase}
+h2.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5.5rem);line-height:.95;letter-spacing:.02em;color:var(--text)}
 
-.sec-label{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
-.sec-line{width:1.5rem;height:1px;background:var(--neon3)}
-.sec-tag{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--neon3)}
-.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5.5rem);line-height:.95;letter-spacing:.02em;color:var(--text)}
+.about-s{background:var(--deep)}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem}
+.abody{font-size:.98rem;color:var(--muted);line-height:1.88;font-weight:300}
+.abody strong{font-weight:700}
+.abody .h1{color:var(--c1)}
+.abody .h2{color:var(--c2)}
+.abody .h3{color:var(--c3)}
+.skwrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+.sk{border:1px solid var(--b2);padding:.28rem .8rem;font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);transition:all .2s;cursor:default}
+.sk:hover{border-color:var(--c1);color:var(--c1);background:var(--c1d)}
+.aphoto{background:var(--surf);border:1px solid var(--b2);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.ainit{font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(0,255,224,.06);letter-spacing:.05em;user-select:none}
+.abadge{position:absolute;bottom:1.5rem;left:1.5rem;background:var(--c1d);border:1px solid rgba(0,255,224,.2);padding:.5rem 1rem}
+.abadge span{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--c1)}
+.acorn{position:absolute;width:28px;height:28px;border-style:solid;border-width:0}
+.acorn.tl{top:-1px;left:-1px;border-top-width:2px;border-left-width:2px;border-color:var(--c2)}
+.acorn.br{bottom:-1px;right:-1px;border-bottom-width:2px;border-right-width:2px;border-color:var(--c2)}
 
-.about-section{background:var(--deep)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem}
-.about-body{font-size:1rem;color:var(--muted);line-height:1.85;font-weight:300}
-.about-body strong{color:var(--neon4);font-weight:700}
-.about-body .hl2{color:var(--neon2)}
-.about-body .hl3{color:var(--neon3)}
-.skills-wrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
-.stag{border:1px solid var(--border2);padding:.3rem .8rem;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);transition:all .2s}
-.stag:hover{border-color:var(--neon);color:var(--neon);background:var(--neon-dim)}
-.about-photo{background:var(--surface);border:1px solid var(--border2);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.photo-initials{font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(180,77,255,.08);letter-spacing:.05em;user-select:none}
-.photo-badge{position:absolute;bottom:1.5rem;left:1.5rem;background:var(--neon-dim);border:1px solid rgba(180,77,255,.25);padding:.5rem 1rem}
-.photo-badge-text{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--neon)}
-.corner{position:absolute;width:32px;height:32px;border-style:solid;border-width:0;border-color:var(--neon3)}
-.tl{top:-1px;left:-1px;border-top-width:2px;border-left-width:2px}
-.br{bottom:-1px;right:-1px;border-bottom-width:2px;border-right-width:2px}
+.svc-s{background:var(--void)}
+.svgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b2);border:1px solid var(--b2);margin-top:3.5rem}
+.svc{background:var(--void);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .3s}
+.svc:hover{background:var(--surf)}
+.sacc{width:3rem;height:2px;margin-bottom:1.5rem;transition:width .3s}
+.svc:hover .sacc{width:5rem}
+.s1 .sacc{background:var(--c1)}
+.s2 .sacc{background:var(--c2)}
+.s3 .sacc{background:var(--c3)}
+.svcn{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(255,255,255,.025);line-height:1;position:absolute;top:1rem;right:1.5rem}
+.svci{width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;border:1px solid var(--b2)}
+.s1 .svci{border-color:rgba(0,255,224,.2);background:var(--c1d)}
+.s2 .svci{border-color:rgba(255,60,172,.2);background:var(--c2d)}
+.s3 .svci{border-color:rgba(255,225,53,.15);background:var(--c3d)}
+.svci svg{width:18px;height:18px;stroke-width:1.5;fill:none}
+.s1 .svci svg{stroke:var(--c1)}
+.s2 .svci svg{stroke:var(--c2)}
+.s3 .svci svg{stroke:var(--c3)}
+.svcname{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:.03em;margin-bottom:.8rem}
+.svcdesc{font-size:.86rem;color:var(--muted);line-height:1.75;font-weight:300}
+.svcpills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
+.svcpill{padding:.2rem .6rem;font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.08em;text-transform:uppercase}
+.s1 .svcpill{background:var(--c1d);color:var(--c1)}
+.s2 .svcpill{background:var(--c2d);color:var(--c2)}
+.s3 .svcpill{background:var(--c3d);color:var(--c3)}
 
-.services-section{background:var(--void)}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);margin-top:3.5rem}
-.svc-card{background:var(--void);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .3s}
-.svc-card:hover{background:var(--surface)}
-.svc-accent{width:3rem;height:3px;margin-bottom:1.5rem;transition:width .3s}
-.svc-card:hover .svc-accent{width:5rem}
-.c-neon .svc-accent{background:var(--neon)}
-.c-neon2 .svc-accent{background:var(--neon2)}
-.c-neon3 .svc-accent{background:var(--neon3)}
-.svc-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(255,255,255,.03);line-height:1;position:absolute;top:1rem;right:1.5rem}
-.svc-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;border:1px solid var(--border2)}
-.c-neon .svc-icon{border-color:rgba(180,77,255,.3);background:var(--neon-dim)}
-.c-neon2 .svc-icon{border-color:rgba(106,255,206,.2);background:var(--neon2-dim)}
-.c-neon3 .svc-icon{border-color:rgba(255,77,139,.2);background:var(--neon3-dim)}
-.svc-icon svg{width:20px;height:20px;stroke-width:1.5;fill:none}
-.c-neon .svc-icon svg{stroke:var(--neon)}
-.c-neon2 .svc-icon svg{stroke:var(--neon2)}
-.c-neon3 .svc-icon svg{stroke:var(--neon3)}
-.svc-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.03em;margin-bottom:.8rem}
-.svc-desc{font-size:.88rem;color:var(--muted);line-height:1.75;font-weight:300}
-.svc-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
-.svc-pill{padding:.2rem .6rem;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase}
-.c-neon .svc-pill{background:var(--neon-dim);color:var(--neon)}
-.c-neon2 .svc-pill{background:var(--neon2-dim);color:var(--neon2)}
-.c-neon3 .svc-pill{background:var(--neon3-dim);color:var(--neon3)}
+.port-s{background:var(--deep)}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--b2);margin-top:3.5rem}
+.pi{position:relative;overflow:hidden;cursor:pointer}
+.pi.big{grid-column:1/-1}
+.pi.big .pframe{aspect-ratio:16/6}
+.pframe{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .6s}
+.pi:hover .pframe{transform:scale(1.03)}
+.pf1{background:#020208}
+.pf2{background:#060212}
+.pf3{background:#020b08}
+.pf4{background:#080502}
+.pbgw{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,7rem);color:rgba(255,255,255,.022);letter-spacing:.12em;user-select:none}
+.pbar{position:absolute;top:0;left:0;right:0;height:2px;transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.pi:hover .pbar{transform:scaleX(1)}
+.p1 .pbar{background:var(--c1)}
+.p2 .pbar{background:var(--c2)}
+.p3 .pbar{background:var(--c3)}
+.p4 .pbar{background:var(--c4)}
+.pover{position:absolute;bottom:0;left:0;right:0;padding:1.8rem;background:linear-gradient(to top,rgba(2,2,8,.96),transparent);transform:translateY(100%);transition:transform .32s}
+.pi:hover .pover{transform:translateY(0)}
+.pcat{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem}
+.p1 .pcat{color:var(--c1)}
+.p2 .pcat{color:var(--c2)}
+.p3 .pcat{color:var(--c3)}
+.p4 .pcat{color:var(--c4)}
+.ptitle{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--text);letter-spacing:.04em}
+.pdef{position:absolute;bottom:1.5rem;left:1.8rem;right:1.8rem;display:flex;justify-content:space-between;align-items:flex-end;transition:opacity .25s}
+.pi:hover .pdef{opacity:0}
+.pnsm{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
+.parr{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);color:var(--muted);font-size:.9rem}
 
-.portfolio-section{background:var(--deep)}
-.port-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border2);margin-top:3.5rem}
-.port-item{position:relative;overflow:hidden;cursor:pointer}
-.port-item.big{grid-column:1/-1}
-.port-item.big .port-frame{aspect-ratio:16/6}
-.port-frame{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .6s}
-.port-item:hover .port-frame{transform:scale(1.03)}
-.pf1{background:var(--void)}
-.pf2{background:#060412}
-.pf3{background:#030d0a}
-.pf4{background:#0d0407}
-.port-bg-word{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,8vw,8rem);color:rgba(255,255,255,.025);letter-spacing:.12em;user-select:none}
-.port-color-bar{position:absolute;top:0;left:0;right:0;height:2px;transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.port-item:hover .port-color-bar{transform:scaleX(1)}
-.p1 .port-color-bar{background:var(--neon)}
-.p2 .port-color-bar{background:var(--neon2)}
-.p3 .port-color-bar{background:var(--neon4)}
-.p4 .port-color-bar{background:var(--neon3)}
-.port-info{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(to top,rgba(4,3,10,.95),transparent);transform:translateY(100%);transition:transform .35s}
-.port-item:hover .port-info{transform:translateY(0)}
-.port-cat{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem}
-.p1 .port-cat{color:var(--neon)}
-.p2 .port-cat{color:var(--neon2)}
-.p3 .port-cat{color:var(--neon4)}
-.p4 .port-cat{color:var(--neon3)}
-.port-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--text);letter-spacing:.04em}
-.port-default{position:absolute;bottom:1.5rem;left:2rem;right:2rem;display:flex;justify-content:space-between;align-items:flex-end;transition:opacity .3s}
-.port-item:hover .port-default{opacity:0}
-.port-name-sm{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.4);letter-spacing:.06em}
-.port-arrow{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:1rem;border:1px solid var(--border2);color:var(--muted)}
+.contact-s{background:var(--void)}
+.ctop{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3.5rem}
+.cbig{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6.5rem);line-height:.9;letter-spacing:.02em;margin-bottom:1.5rem}
+.cbig .v1{color:var(--text)}
+.cbig .v2{color:var(--c1)}
+.cbig .v3{color:transparent;-webkit-text-stroke:1px rgba(0,255,224,.25)}
+.csub{font-size:.9rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:34ch;margin-bottom:2rem}
+.cemail{display:flex;align-items:center;gap:.9rem;padding:1.1rem;border:1px solid var(--b2);background:var(--surf);text-decoration:none;transition:all .2s}
+.cemail:hover{border-color:var(--c1);background:var(--c1d)}
+.eico{width:32px;height:32px;background:var(--c1d);border:1px solid rgba(0,255,224,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.eico svg{width:15px;height:15px;stroke:var(--c1);stroke-width:1.5;fill:none}
+.etxt strong{display:block;color:var(--c1);font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.06em;margin-bottom:.15rem}
+.etxt span{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--muted);letter-spacing:.06em}
 
-.contact-section{background:var(--void)}
-.contact-top{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:3.5rem}
-.contact-left{}
-.contact-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);line-height:.9;letter-spacing:.02em;margin-bottom:1.5rem}
-.contact-big .v1{color:var(--text)}
-.contact-big .v2{color:var(--neon);-webkit-text-stroke:0}
-.contact-big .v3{color:transparent;-webkit-text-stroke:1px rgba(180,77,255,.3)}
-.contact-email{display:flex;align-items:center;gap:.8rem;margin-top:2rem;padding:1.2rem;border:1px solid var(--border2);background:var(--surface);text-decoration:none;transition:border-color .2s,background .2s}
-.contact-email:hover{border-color:var(--neon);background:var(--neon-dim)}
-.email-icon{width:32px;height:32px;background:var(--neon-dim);border:1px solid rgba(180,77,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.email-icon svg{width:16px;height:16px;stroke:var(--neon);stroke-width:1.5;fill:none}
-.email-text{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:var(--muted)}
-.email-text strong{display:block;color:var(--neon);margin-bottom:.1rem;font-size:.7rem}
-.contact-form{}
-.flbl{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:.4rem;margin-top:1rem}
-.finput{width:100%;background:var(--surface);border:1px solid var(--border2);color:var(--text);padding:.8rem 1rem;font-family:'Syne',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;border-radius:0}
-.finput::placeholder{color:var(--dim)}
-.finput:focus{border-color:var(--neon)}
-textarea.finput{resize:vertical;min-height:110px}
-select.finput option{background:var(--surface)}
-.submit-btn{width:100%;background:var(--neon);color:#07000f;border:none;padding:1rem;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.12em;cursor:pointer;transition:background .2s,transform .15s;margin-top:1.2rem;font-weight:700}
-.submit-btn:hover{background:var(--neon2);color:#001a10;transform:translateY(-2px)}
+.cform{}
+.flbl{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:.35rem;margin-top:.9rem}
+.fi{width:100%;background:var(--surf);border:1px solid var(--b2);color:var(--text);padding:.8rem 1rem;font-family:'Syne',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;border-radius:0;appearance:none}
+.fi::placeholder{color:var(--dim)}
+.fi:focus{border-color:var(--c1);background:var(--surf2)}
+.fi option{background:var(--surf)}
+textarea.fi{resize:vertical;min-height:100px}
 
-footer{background:#020108;padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border2)}
-.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.1em;color:var(--dim)}
-.foot-logo span{color:var(--neon)}
-.foot-copy{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--dim)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
 
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
-.reveal.on{opacity:1;transform:translateY(0)}
+.sbtn{width:100%;background:var(--c1);color:#001a14;border:none;padding:1rem;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.12em;cursor:pointer;transition:all .2s;margin-top:1.2rem;font-weight:700}
+.sbtn:hover{background:var(--c2);color:#200010;transform:translateY(-2px)}
+.sbtn:disabled{background:var(--dim);color:var(--muted);cursor:not-allowed;transform:none}
+
+.fmsg{margin-top:.8rem;padding:.8rem 1rem;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.06em;border:1px solid;display:none}
+.fmsg.ok{color:var(--c1);border-color:rgba(0,255,224,.25);background:var(--c1d)}
+.fmsg.err{color:var(--c2);border-color:rgba(255,60,172,.25);background:var(--c2d)}
+
+.fval{color:var(--c2);font-family:'Space Mono',monospace;font-size:.56rem;margin-top:.25rem;display:none}
+
+footer{background:#010106;padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--b2)}
+.flogo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.1em;color:var(--dim)}
+.flogo span{color:var(--c1)}
+.fcopy{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.1em;color:var(--dim)}
+
+.rev{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rev.on{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
+<div class="cursor" id="cur"></div>
 
 <nav>
-  <a class="nav-logo" href="#"><span>A</span>BDELKADER</a>
+  <a class="logo" href="#"><span>A</span>BDELKADER</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -208,234 +226,245 @@ footer{background:#020108;padding:2rem 3.5rem;display:flex;justify-content:space
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-bg-glyph">AK</div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-line"></span>
-      <span class="eyebrow-text">Open for work — 2025</span>
-    </div>
-    <h1 class="hero-name">
-      ABDEL<br>
-      <span class="line2">KA</span><span class="outline">DER</span>
-    </h1>
-    <p class="hero-desc">
-      <strong>Software developer</strong> & <strong>graphic designer</strong> — building apps that run fast, visuals that hit hard, and photographs that freeze the moment.
-    </p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#contact">Start a project →</a>
-      <a class="btn-ghost" href="#portfolio">See my work</a>
+  <div class="ghost">AK</div>
+  <div class="hc">
+    <div class="eyebrow"><span class="eline"></span><span class="etag">Open for work — 2025</span></div>
+    <h1>ABDEL<br><span class="l2">KA</span><span class="lo">DER</span></h1>
+    <p class="hdesc"><strong>Software developer</strong> & <strong>graphic designer</strong> — apps that run fast, visuals that hit hard, photos that freeze time.</p>
+    <div class="hbtns">
+      <a class="bp" href="#contact">Start a project →</a>
+      <a class="bg" href="#portfolio">See my work</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-stats">
-      <div class="stat-box"><div class="stat-num">50+</div><div class="stat-lbl">Projects done</div></div>
-      <div class="stat-box"><div class="stat-num c2">3</div><div class="stat-lbl">Core services</div></div>
-      <div class="stat-box"><div class="stat-num c3">5+</div><div class="stat-lbl">Years active</div></div>
-      <div class="stat-box"><div class="stat-num c4">∞</div><div class="stat-lbl">Ideas ready</div></div>
+  <div class="hr">
+    <div class="hstats">
+      <div class="sbox"><div class="snum">50+</div><div class="slbl">Projects done</div></div>
+      <div class="sbox"><div class="snum">3</div><div class="slbl">Core services</div></div>
+      <div class="sbox"><div class="snum">5+</div><div class="slbl">Years active</div></div>
+      <div class="sbox"><div class="snum">∞</div><div class="slbl">Ideas ready</div></div>
     </div>
-    <div class="avail-strip">
-      <div class="pulse-dot"></div>
-      <div class="avail-text">Status: <span>Available</span> — Let's build something remarkable</div>
+    <div class="astrip">
+      <div class="pdot"></div>
+      <div class="atxt">Status: <span>Available</span> — Let's build something remarkable</div>
     </div>
   </div>
 </section>
 
-<div class="ticker-outer">
-  <div class="ticker-track">
-    <span class="ticker-item">App Development<span class="dot">✦</span></span>
-    <span class="ticker-item">Graphic Design<span class="dot">✦</span></span>
-    <span class="ticker-item">Photography<span class="dot">✦</span></span>
-    <span class="ticker-item">UI / UX<span class="dot">✦</span></span>
-    <span class="ticker-item">Brand Identity<span class="dot">✦</span></span>
-    <span class="ticker-item">Motion Graphics<span class="dot">✦</span></span>
-    <span class="ticker-item">Mobile Apps<span class="dot">✦</span></span>
-    <span class="ticker-item">Visual Storytelling<span class="dot">✦</span></span>
-    <span class="ticker-item">App Development<span class="dot">✦</span></span>
-    <span class="ticker-item">Graphic Design<span class="dot">✦</span></span>
-    <span class="ticker-item">Photography<span class="dot">✦</span></span>
-    <span class="ticker-item">UI / UX<span class="dot">✦</span></span>
-    <span class="ticker-item">Brand Identity<span class="dot">✦</span></span>
-    <span class="ticker-item">Motion Graphics<span class="dot">✦</span></span>
-    <span class="ticker-item">Mobile Apps<span class="dot">✦</span></span>
-    <span class="ticker-item">Visual Storytelling<span class="dot">✦</span></span>
+<div class="tkr">
+  <div class="ttrack">
+    <span class="titem">App Development<span class="td">✦</span></span>
+    <span class="titem">Graphic Design<span class="td">✦</span></span>
+    <span class="titem">Photography<span class="td">✦</span></span>
+    <span class="titem">UI / UX<span class="td">✦</span></span>
+    <span class="titem">Brand Identity<span class="td">✦</span></span>
+    <span class="titem">Motion Graphics<span class="td">✦</span></span>
+    <span class="titem">Mobile Apps<span class="td">✦</span></span>
+    <span class="titem">Visual Storytelling<span class="td">✦</span></span>
+    <span class="titem">App Development<span class="td">✦</span></span>
+    <span class="titem">Graphic Design<span class="td">✦</span></span>
+    <span class="titem">Photography<span class="td">✦</span></span>
+    <span class="titem">UI / UX<span class="td">✦</span></span>
+    <span class="titem">Brand Identity<span class="td">✦</span></span>
+    <span class="titem">Motion Graphics<span class="td">✦</span></span>
+    <span class="titem">Mobile Apps<span class="td">✦</span></span>
+    <span class="titem">Visual Storytelling<span class="td">✦</span></span>
   </div>
 </div>
 
-<section class="block about-section reveal" id="about">
-  <div class="sec-label"><span class="sec-line"></span><span class="sec-tag">Who I am</span></div>
-  <h2 class="sec-title">ABOUT ME.</h2>
-  <div class="about-grid">
+<section class="blk about-s rev" id="about">
+  <div class="sl"><span class="sln" style="background:var(--c2)"></span><span class="stg" style="color:var(--c2)">Who I am</span></div>
+  <h2 class="st">ABOUT ME.</h2>
+  <div class="agrid">
     <div>
-      <p class="about-body">
-        I'm <strong>Abdelkader</strong> — a multidisciplinary creative from Algeria working at the edge of technology and design.<br><br>
-        I build <span class="hl2">apps that perform</span>, craft <span class="hl3">visuals that provoke</span>, and capture <strong>photographs that last</strong>. Each discipline feeds the other — my code thinks like a designer, my design thinks like a developer.<br><br>
-        The goal is never "good enough." It's <strong>unmistakable</strong>.
-      </p>
-      <div class="skills-wrap">
-        <span class="stag">React Native</span>
-        <span class="stag">Flutter</span>
-        <span class="stag">Node.js</span>
-        <span class="stag">Figma</span>
-        <span class="stag">Adobe Suite</span>
-        <span class="stag">Lightroom</span>
-        <span class="stag">Premiere</span>
-        <span class="stag">Branding</span>
-        <span class="stag">Motion</span>
-        <span class="stag">Photography</span>
+      <p class="abody">I'm <span class="h1"><strong>Abdelkader</strong></span> — a multidisciplinary creative from Algeria working at the edge of technology and design.<br><br>I build <span class="h1">apps that perform</span>, craft <span class="h2">visuals that provoke</span>, and capture <span class="h3">photographs that last</span>. Each discipline feeds the other — my code thinks like a designer, my design thinks like a developer.<br><br>The goal is never "good enough." It's <strong>unmistakable</strong>.</p>
+      <div class="skwrap">
+        <span class="sk">React Native</span><span class="sk">Flutter</span><span class="sk">Node.js</span><span class="sk">Figma</span><span class="sk">Adobe Suite</span><span class="sk">Lightroom</span><span class="sk">Premiere</span><span class="sk">Branding</span><span class="sk">Motion</span><span class="sk">Photography</span>
       </div>
     </div>
     <div>
-      <div class="about-photo">
-        <div class="corner tl"></div>
-        <div class="corner br"></div>
-        <div class="photo-initials">AK</div>
-        <div class="photo-badge"><span class="photo-badge-text">// Abdelkader — DZ</span></div>
+      <div class="aphoto">
+        <div class="acorn tl"></div>
+        <div class="acorn br"></div>
+        <div class="ainit">AK</div>
+        <div class="abadge"><span>// Abdelkader — DZ</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block services-section reveal" id="services">
-  <div class="sec-label"><span class="sec-line" style="background:var(--neon)"></span><span class="sec-tag" style="color:var(--neon)">What I do</span></div>
-  <h2 class="sec-title">SERVICES.</h2>
-  <div class="svc-grid">
-    <div class="svc-card c-neon">
-      <span class="svc-num">01</span>
-      <div class="svc-accent"></div>
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      </div>
-      <div class="svc-name">App Making</div>
-      <p class="svc-desc">From zero to launch — mobile and web apps architected for performance, designed for delight, built to scale.</p>
-      <div class="svc-pills">
-        <span class="svc-pill">Mobile</span>
-        <span class="svc-pill">Web</span>
-        <span class="svc-pill">Full-Stack</span>
-        <span class="svc-pill">UI/UX</span>
-      </div>
+<section class="blk svc-s rev" id="services">
+  <div class="sl"><span class="sln" style="background:var(--c1)"></span><span class="stg" style="color:var(--c1)">What I do</span></div>
+  <h2 class="st">SERVICES.</h2>
+  <div class="svgrid">
+    <div class="svc s1">
+      <span class="svcn">01</span>
+      <div class="sacc"></div>
+      <div class="svci"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="svcname">App Making</div>
+      <p class="svcdesc">From zero to launch — mobile and web apps built for performance, designed for delight, ready to scale.</p>
+      <div class="svcpills"><span class="svcpill">Mobile</span><span class="svcpill">Web</span><span class="svcpill">Full-Stack</span><span class="svcpill">UI/UX</span></div>
     </div>
-    <div class="svc-card c-neon2">
-      <span class="svc-num">02</span>
-      <div class="svc-accent"></div>
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
-      </div>
-      <div class="svc-name">Graphic Design</div>
-      <p class="svc-desc">Brand identities, visual systems, and digital assets that are impossible to ignore and impossible to forget.</p>
-      <div class="svc-pills">
-        <span class="svc-pill">Branding</span>
-        <span class="svc-pill">Print</span>
-        <span class="svc-pill">Social</span>
-        <span class="svc-pill">Motion</span>
-      </div>
+    <div class="svc s2">
+      <span class="svcn">02</span>
+      <div class="sacc"></div>
+      <div class="svci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg></div>
+      <div class="svcname">Graphic Design</div>
+      <p class="svcdesc">Brand identities, visual systems, and digital assets that are impossible to ignore and impossible to forget.</p>
+      <div class="svcpills"><span class="svcpill">Branding</span><span class="svcpill">Print</span><span class="svcpill">Social</span><span class="svcpill">Motion</span></div>
     </div>
-    <div class="svc-card c-neon3">
-      <span class="svc-num">03</span>
-      <div class="svc-accent"></div>
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      </div>
-      <div class="svc-name">Photography</div>
-      <p class="svc-desc">Product, portrait, and editorial photography with a sharp visual eye — every frame is a deliberate decision.</p>
-      <div class="svc-pills">
-        <span class="svc-pill">Product</span>
-        <span class="svc-pill">Portrait</span>
-        <span class="svc-pill">Editorial</span>
-        <span class="svc-pill">Retouch</span>
-      </div>
+    <div class="svc s3">
+      <span class="svcn">03</span>
+      <div class="sacc"></div>
+      <div class="svci"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <div class="svcname">Photography</div>
+      <p class="svcdesc">Product, portrait and editorial photography — every frame is a deliberate decision made with a sharp visual eye.</p>
+      <div class="svcpills"><span class="svcpill">Product</span><span class="svcpill">Portrait</span><span class="svcpill">Editorial</span><span class="svcpill">Retouch</span></div>
     </div>
   </div>
 </section>
 
-<section class="block portfolio-section reveal" id="portfolio">
-  <div class="sec-label"><span class="sec-line" style="background:var(--neon4)"></span><span class="sec-tag" style="color:var(--neon4)">Selected work</span></div>
-  <h2 class="sec-title">MY WORK.</h2>
-  <div class="port-grid">
-    <div class="port-item p1 big">
-      <div class="port-color-bar"></div>
-      <div class="port-frame pf1"><span class="port-bg-word">APPDEV</span></div>
-      <div class="port-default"><span class="port-name-sm">Featured App</span><span class="port-arrow">↗</span></div>
-      <div class="port-info"><div class="port-cat">App Development</div><div class="port-title">Mobile Commerce Platform</div></div>
+<section class="blk port-s rev" id="portfolio">
+  <div class="sl"><span class="sln" style="background:var(--c3)"></span><span class="stg" style="color:var(--c3)">Selected work</span></div>
+  <h2 class="st">MY WORK.</h2>
+  <div class="pgrid">
+    <div class="pi p1 big">
+      <div class="pbar"></div>
+      <div class="pframe pf1"><span class="pbgw">APPDEV</span></div>
+      <div class="pdef"><span class="pnsm">Featured App</span><span class="parr">↗</span></div>
+      <div class="pover"><div class="pcat">App Development</div><div class="ptitle">Mobile Commerce Platform</div></div>
     </div>
-    <div class="port-item p2">
-      <div class="port-color-bar"></div>
-      <div class="port-frame pf2"><span class="port-bg-word">BRAND</span></div>
-      <div class="port-default"><span class="port-name-sm">Branding</span><span class="port-arrow">↗</span></div>
-      <div class="port-info"><div class="port-cat">Graphic Design</div><div class="port-title">Visual Brand System</div></div>
+    <div class="pi p2">
+      <div class="pbar"></div>
+      <div class="pframe pf2"><span class="pbgw">BRAND</span></div>
+      <div class="pdef"><span class="pnsm">Branding</span><span class="parr">↗</span></div>
+      <div class="pover"><div class="pcat">Graphic Design</div><div class="ptitle">Visual Brand System</div></div>
     </div>
-    <div class="port-item p3">
-      <div class="port-color-bar"></div>
-      <div class="port-frame pf3"><span class="port-bg-word">PHOTO</span></div>
-      <div class="port-default"><span class="port-name-sm">Photography</span><span class="port-arrow">↗</span></div>
-      <div class="port-info"><div class="port-cat">Photography</div><div class="port-title">Product Editorial Series</div></div>
+    <div class="pi p3">
+      <div class="pbar"></div>
+      <div class="pframe pf3"><span class="pbgw">PHOTO</span></div>
+      <div class="pdef"><span class="pnsm">Photography</span><span class="parr">↗</span></div>
+      <div class="pover"><div class="pcat">Photography</div><div class="ptitle">Product Editorial Series</div></div>
     </div>
-    <div class="port-item p4">
-      <div class="port-color-bar"></div>
-      <div class="port-frame pf4"><span class="port-bg-word">UI</span></div>
-      <div class="port-default"><span class="port-name-sm">UI Design</span><span class="port-arrow">↗</span></div>
-      <div class="port-info"><div class="port-cat">App Design</div><div class="port-title">Dashboard UI Kit</div></div>
+    <div class="pi p4">
+      <div class="pbar"></div>
+      <div class="pframe pf4"><span class="pbgw">UI</span></div>
+      <div class="pdef"><span class="pnsm">UI Design</span><span class="parr">↗</span></div>
+      <div class="pover"><div class="pcat">App Design</div><div class="ptitle">Dashboard UI Kit</div></div>
     </div>
   </div>
 </section>
 
-<section class="block contact-section reveal" id="contact">
-  <div class="sec-label"><span class="sec-line" style="background:var(--neon2)"></span><span class="sec-tag" style="color:var(--neon2)">Get in touch</span></div>
-  <div class="contact-top">
-    <div class="contact-left">
-      <div class="contact-big">
-        <div class="v1">LET'S</div>
-        <div class="v2">BUILD</div>
-        <div class="v3">TOGETHER.</div>
-      </div>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:36ch">Have a project? A wild idea? Or just want to talk design and tech — my inbox is open.</p>
-      <a class="contact-email" href="mailto:abdelkaderdz2008@gmail.com">
-        <div class="email-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></div>
-        <div class="email-text"><strong>abdelkaderdz2008@gmail.com</strong>Direct email — always read</div>
+<section class="blk contact-s rev" id="contact">
+  <div class="sl"><span class="sln" style="background:var(--c4)"></span><span class="stg" style="color:var(--c4)">Get in touch</span></div>
+  <div class="ctop">
+    <div>
+      <div class="cbig"><div class="v1">LET'S</div><div class="v2">BUILD</div><div class="v3">TOGETHER.</div></div>
+      <p class="csub">Have a project, a wild idea, or just want to talk design and tech — my inbox is always open.</p>
+      <a class="cemail" href="mailto:abdelkaderdz2008@gmail.com">
+        <div class="eico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></div>
+        <div class="etxt"><strong>abdelkaderdz2008@gmail.com</strong><span>Direct email — always read</span></div>
       </a>
     </div>
-    <div class="contact-form">
-      <form onsubmit="handleForm(event)">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
-          <div><label class="flbl">Name</label><input class="finput" type="text" placeholder="Your name"></div>
-          <div><label class="flbl">Email</label><input class="finput" type="email" placeholder="you@example.com"></div>
+    <div class="cform">
+      <div class="frow">
+        <div>
+          <label class="flbl">Your name *</label>
+          <input class="fi" type="text" id="fname" placeholder="John Doe">
+          <div class="fval" id="vname">Name is required</div>
         </div>
-        <label class="flbl">Service</label>
-        <select class="finput">
-          <option value="" style="background:#0e0b1e">Select...</option>
-          <option style="background:#0e0b1e">App Development</option>
-          <option style="background:#0e0b1e">Graphic Design</option>
-          <option style="background:#0e0b1e">Photography</option>
-          <option style="background:#0e0b1e">Combined / Other</option>
-        </select>
-        <label class="flbl">Message</label>
-        <textarea class="finput" placeholder="Tell me about your project..."></textarea>
-        <button class="submit-btn" type="submit" id="sbtn">Send Message →</button>
-      </form>
+        <div>
+          <label class="flbl">Email *</label>
+          <input class="fi" type="email" id="femail" placeholder="you@example.com">
+          <div class="fval" id="vemail">Valid email required</div>
+        </div>
+      </div>
+      <label class="flbl">Service needed *</label>
+      <select class="fi" id="fservice">
+        <option value="">Select a service...</option>
+        <option value="App Development">App Development</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Photography">Photography</option>
+        <option value="Combined / Other">Combined / Other</option>
+      </select>
+      <div class="fval" id="vservice">Please select a service</div>
+      <label class="flbl">Message *</label>
+      <textarea class="fi" id="fmessage" placeholder="Tell me about your project..."></textarea>
+      <div class="fval" id="vmessage">Message is required</div>
+      <button class="sbtn" id="sbtn" onclick="submitForm()">Send Message →</button>
+      <div class="fmsg" id="fmsg"></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="foot-logo"><span>A</span>BDELKADER</div>
-  <div class="foot-copy">© 2025 — All rights reserved</div>
-  <div class="foot-copy">DZ — Developer & Designer</div>
+  <div class="flogo"><span>A</span>BDELKADER</div>
+  <div class="fcopy">© 2025 — All rights reserved</div>
+  <div class="fcopy">DZ — Developer & Designer</div>
 </footer>
 
 <script>
-const cur=document.getElementById('cursor');
+const cur=document.getElementById('cur');
 document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
-document.querySelectorAll('a,button,.port-item,.svc-card,.stat-box').forEach(el=>{
+document.querySelectorAll('a,button,.pi,.svc,.sbox').forEach(el=>{
   el.addEventListener('mouseenter',()=>cur.classList.add('big'));
   el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
 });
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-function handleForm(e){
-  e.preventDefault();
-  const b=document.getElementById('sbtn');
-  b.textContent='Sent! ✓';b.style.background='var(--neon2)';b.style.color='#001a10';
-  setTimeout(()=>{b.textContent='Send Message →';b.style.background='';b.style.color='';},3000);
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.07});
+document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+
+function validate(){
+  let ok=true;
+  const name=document.getElementById('fname').value.trim();
+  const email=document.getElementById('femail').value.trim();
+  const service=document.getElementById('fservice').value;
+  const msg=document.getElementById('fmessage').value.trim();
+  const vname=document.getElementById('vname');
+  const vemail=document.getElementById('vemail');
+  const vservice=document.getElementById('vservice');
+  const vmsg=document.getElementById('vmessage');
+  vname.style.display=name?'none':'block'; if(!name)ok=false;
+  const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  vemail.style.display=emailOk?'none':'block'; if(!emailOk)ok=false;
+  vservice.style.display=service?'none':'block'; if(!service)ok=false;
+  vmsg.style.display=msg?'none':'block'; if(!msg)ok=false;
+  return ok;
 }
+
+function submitForm(){
+  if(!validate())return;
+  const btn=document.getElementById('sbtn');
+  const fmsg=document.getElementById('fmsg');
+  const name=document.getElementById('fname').value.trim();
+  const email=document.getElementById('femail').value.trim();
+  const service=document.getElementById('fservice').value;
+  const msg=document.getElementById('fmessage').value.trim();
+  btn.disabled=true;
+  btn.textContent='Sending...';
+  const subject=encodeURIComponent('New project inquiry: '+service);
+  const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nService: '+service+'\n\nMessage:\n'+msg);
+  const mailtoLink='mailto:abdelkaderdz2008@gmail.com?subject='+subject+'&body='+body;
+  window.location.href=mailtoLink;
+  setTimeout(()=>{
+    btn.disabled=false;
+    btn.textContent='Send Message →';
+    fmsg.className='fmsg ok';
+    fmsg.style.display='block';
+    fmsg.textContent='Your email client opened — finish sending from there!';
+    document.getElementById('fname').value='';
+    document.getElementById('femail').value='';
+    document.getElementById('fservice').value='';
+    document.getElementById('fmessage').value='';
+  },1200);
+}
+
+['fname','femail','fservice','fmessage'].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener('input',()=>{
+    const vid='v'+id.replace('f','');
+    const vel=document.getElementById(vid);
+    if(vel)vel.style.display='none';
+  });
+});
 </script>
 </body>
 </html>
